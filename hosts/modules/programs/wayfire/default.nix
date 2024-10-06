@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 let
   cfg = config.cyang.programs.wayfire;
 in
@@ -11,6 +11,7 @@ with lib;
     programs = {
       wayfire = {
         enable = true;
+        package = pkgs.wayfire;
         plugins = with pkgs.wayfirePlugins; [ wcm wf-shell wayfire-plugins-extra ];
       };
     };

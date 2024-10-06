@@ -39,8 +39,10 @@ in
         bind = [
           # 终端
           "$MOD, RETURN, exec, alacritty"
+          "ALT, RETURN, exec, alacritty"
           # wofi
           "$MOD, SPACE, exec, wofi --show drun --style=$HOME/.config/style.css"
+          "ALT, SPACE, exec, wofi --show drun"
           "$MOD SHIFT, SPACE, exec, wofi --show run"
           # kill
           "$MOD, Q, killactive"
@@ -125,7 +127,7 @@ in
         monitor = [
           "eDP-1,1920x1080@60,0x0, 1"
           "DP-2, 2560x1440@75, 1920x0, 1"
-          "HDMI-A-1, 2560x1440@75, 1920x0, 1"
+          "HDMI-A-1, 3840x2160@60, 1920x0, 1"
 
           #"HDMI-A-1,1920x1080@60,0x0,1"
         ];

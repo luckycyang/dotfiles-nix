@@ -20,9 +20,17 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # nixpkgs feature
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-  nixpkgs.config.nvidia.acceptLicense = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowBroken = true;
+      nvidia.acceptLicense = true;
+      permittedInsecurePackages = [
+        "fluffychat-linux-1.20.0"
+        "olm-3.2.16"
+      ];
+    };
+  };
 
 
   # Debug
@@ -105,6 +113,8 @@
     pulse.enable = true;
   };
 
+
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -138,10 +148,14 @@
     tlrc
     rsync
     aria2
+    ffmpeg-full
 
     # 打包与亚索
     unzipNLS
     p7zip
+    unrar-wrapper
+    # Professional video editing, color, effects and audio post-processing
+    davinci-resolve
 
   ];
 

@@ -8,6 +8,7 @@
   config.cyang = {
     graphical = {
       hyprland.enable = true;
+      river.enable = true;
     };
     programs = {
       wayfire.enable = true;

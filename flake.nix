@@ -10,6 +10,7 @@
     nixpkgs-wayland.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     swww.url = "github:LGFae/swww";
+    nur.url = "github:nix-community/NUR";
     mynur.url = "github:luckycyang/nur-packages";
     mynur.inputs.nixpkgs.follows = "nixpkgs";
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
@@ -26,7 +27,7 @@
         config.allowBroken = true;
         config.allowUnfree = true;
         config.nvidia.acceptLicense = true;
-        overlays = [ inputs.nixpkgs-wayland.overlay ];
+        overlays = [ inputs.nixpkgs-wayland.overlay inputs.nur.overlay ];
       };
     in
     {
