@@ -41,6 +41,10 @@
     # CubeMX
     stm32cubemx
 
+    # Postman
+    postman
+
+
 
 
 
@@ -52,9 +56,10 @@
       yesplaymusic
       android-studio
       telegram-desktop
-
+      jellyfin-media-player
       # nur
       nur.repos.linyinfeng.wemeet
+
     ]);
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

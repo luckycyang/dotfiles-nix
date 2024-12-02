@@ -28,6 +28,7 @@ in
         # zig 语言的 LSP 和 Format 会在 devenv 提供， 或者自行提供, 因为 zig 还没有 release, 版本差异较大
         rocmPackages.llvm.lldb # lldb 把 c/c++ rust zig 一把嗦
         typst-lsp
+        python312Packages.python-lsp-server
 
 
       ];

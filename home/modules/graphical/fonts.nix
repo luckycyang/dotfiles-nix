@@ -26,6 +26,8 @@ in
         weather-icons
         source-code-pro
         fira-code-nerdfont
+        source-han-sans
+        source-han-serif
       ];
     };
 }

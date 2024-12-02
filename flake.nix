@@ -17,16 +17,19 @@
     jovian.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixvim.url = "github:luckycyang/nixvim";
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
+    nixgl.url = "github:nix-community/nixGL";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, swww, mynur, nixvim, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, swww, mynur, nixvim, nixgl, ... }:
     let
       system = "x86_64-linux";
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
-        config.allowBroken = true;
-        config.allowUnfree = true;
-        config.nvidia.acceptLicense = true;
+        config = {
+          allowBroken = true;
+          allowUnfree = true;
+          nvidia.acceptLicense = true;
+        };
         overlays = [ inputs.nixpkgs-wayland.overlay inputs.nur.overlay ];
       };
     in
@@ -39,16 +42,19 @@
             ./hosts/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.dingduck = import ./home/home.nix;
-              home-manager.extraSpecialArgs = inputs // { inherit system pkgs-unstable; };
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.dingduck = import ./home/home.nix;
+                extraSpecialArgs = inputs // { inherit system pkgs-unstable; };
+              };
             }
             (_: {
               nixpkgs.overlays = [
                 (final: prev: {
                   v2raya = prev.v2raya.override { v2ray = final.xray; };
                 })
+                nixgl.overlay
               ];
             })
 

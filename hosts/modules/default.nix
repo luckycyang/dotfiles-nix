@@ -11,13 +11,13 @@
     programs = {
       wayfire.enable = true;
       thunar.enable = true;
-      virt-manager.enable = false;
+      virt-manager.enable = true;
       steam.enable = true;
     };
     services = {
       udev.enable = true;
     };
-    virtualisation.podman.enable = false;
+    virtualisation.podman.enable = true;
   };
   config = {
     programs.light.enable = true;

@@ -56,7 +56,6 @@
 
   networking.hostName = "luckynix"; # Define your hostname.
   # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -67,6 +66,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
@@ -93,7 +93,10 @@
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  #
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -150,6 +153,9 @@
     aria2
     ffmpeg-full
 
+    # DNS Query
+    dig
+
     # 打包与亚索
     unzipNLS
     p7zip
@@ -166,6 +172,9 @@
     LC_ALL = "en_US.UTF-8";
     WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
   };
+  environment.interactiveShellInit = ''
+    alias aup='aria2c --conf-path=/home/dingduck/Downloads/aria2/.aria2.conf'
+  '';
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -193,6 +202,7 @@
     allowedTCPPorts = [ 80 443 8000 ];
     allowedUDPPortRanges = [
       { from = 8000; to = 8080; }
+      { from = 6881; to = 6999; }
     ];
     trustedInterfaces = [
       "virbr0" # kvm default network bridge

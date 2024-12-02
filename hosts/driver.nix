@@ -8,6 +8,7 @@
     boot.initrd.kernelModules = [ "amdgpu" ];
     boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
+    services.blueman.enable = true;
     services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
     hardware = {
       bluetooth.enable = true; # enables support for Bluetooth
