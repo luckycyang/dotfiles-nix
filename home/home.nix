@@ -19,7 +19,6 @@
 
 
     termius
-    qq
 
 
     # Video Player
@@ -29,17 +28,24 @@
     # LibreOffice
     libreoffice-qt
 
+    localsend
     # Obsidian
     obsidian
 
     # Matrix 
-    fluffychat
+    # fluffychat
+
+    # Arc Browser
 
     # Kicad
     kicad
 
     # CubeMX
-    stm32cubemx
+    # stm32cubemx
+
+    (hmcl.override {
+      jre = temurin-jre-bin-17;
+    })
 
     # Postman
     postman
@@ -53,6 +59,7 @@
 
   ]) ++ (with pkgs-unstable;
     [
+      qq
       yesplaymusic
       android-studio
       telegram-desktop
@@ -71,6 +78,9 @@
   # changes in each release.
   home.stateVersion = "24.05";
 
+  programs.fish = {
+    enable = true;
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

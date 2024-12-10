@@ -13,10 +13,10 @@
     hardware = {
       bluetooth.enable = true; # enables support for Bluetooth
       bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-      opengl = {
+      graphics = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
+        # driSupport = true;
+        enable32Bit = true;
         extraPackages = with pkgs;[
           rocmPackages.clr.icd
           rocmPackages.clr

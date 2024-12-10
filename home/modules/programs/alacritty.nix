@@ -25,7 +25,7 @@ in
             blinking = "On";
           };
         };
-        live_config_reload = true;
+        general.live_config_reload = true;
         font = {
           normal.family = "JetBrains Mono";
           bold.family = "JetBrains Mono";

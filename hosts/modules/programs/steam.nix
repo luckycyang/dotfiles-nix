@@ -18,6 +18,6 @@ in
       };
     };
     hardware.steam-hardware.enable = true;
-    hardware.opengl.driSupport32Bit = lib.mkForce true; # because steam true and nixos-hardware is flase but steam launch in opengl 32bit dri
+    # hardware.opengl.driSupport32Bit = lib.mkForce true; # because steam true and nixos-hardware is flase but steam launch in opengl 32bit dri
   };
 }

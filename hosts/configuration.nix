@@ -73,7 +73,8 @@
     "zh_CN.UTF-8/UTF-8"
   ];
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    type = "fcitx5";
+    enable = true;
     fcitx5.addons = with pkgs; [
       fcitx5-rime
       fcitx5-chinese-addons
@@ -106,7 +107,7 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false; # 使用pipewire
   security.rtkit.enable = true;
   services.pipewire = {
@@ -199,7 +200,7 @@
   # Or disable the firewall altogether.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 8000 ];
+    allowedTCPPorts = [ 80 443 8000 53317 ];
     allowedUDPPortRanges = [
       { from = 8000; to = 8080; }
       { from = 6881; to = 6999; }
@@ -231,7 +232,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
   networking.extraHosts = ''
 
   '';
